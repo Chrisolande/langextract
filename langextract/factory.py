@@ -36,7 +36,7 @@ class ModelConfig:
   """Configuration for instantiating a language model provider.
 
   Attributes:
-    model_id: The model identifier (e.g., "gemini-2.5-flash", "gpt-4o").
+    model_id: The model identifier (e.g., "gemini-2.5-flash", "gpt-4o", "deepseek-chat", "deepseek-reasoner").
     provider: Optional explicit provider name or class name. Use this to
       disambiguate when multiple providers support the same model_id.
     provider_kwargs: Optional provider-specific keyword arguments.
@@ -68,6 +68,7 @@ def _kwargs_with_environment_defaults(
     env_vars_by_provider = {
         "gemini": ("GEMINI_API_KEY", "LANGEXTRACT_API_KEY"),
         "gpt": ("OPENAI_API_KEY", "LANGEXTRACT_API_KEY"),
+        "deepseek": ("DEEPSEEK_API_KEY", "LANGEXTRACT_API_KEY")
     }
 
     for provider_prefix, env_vars in env_vars_by_provider.items():
@@ -82,6 +83,12 @@ def _kwargs_with_environment_defaults(
   if "ollama" in model_id.lower() and "base_url" not in resolved:
     resolved["base_url"] = os.getenv(
         "OLLAMA_BASE_URL", "http://localhost:11434"
+    )
+
+
+  if "deepseek" in model_id.lower() and "base_url" not in resolved:
+    resolved["base_url"] = os.getenv(
+        "DEEPSEEK_BASE_URL", "https://api.deepseek.com"
     )
 
   return resolved

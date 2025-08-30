@@ -28,6 +28,9 @@ OPENAI_PATTERNS = (
     r'^gpt4\.',
     r'^gpt-5',
     r'^gpt5\.',
+    # Access DeepSeek models via an openai compatible
+    r'^deepseek',
+    r'^deepseek$',  # allow explicit provider name
 )
 OPENAI_PRIORITY = 10
 
@@ -40,7 +43,6 @@ OLLAMA_PATTERNS = (
     r'^mixtral',  # mixtral:8x7b, mixtral:8x22b, etc.
     r'^phi',  # phi3:3.8b, phi3:14b, etc.
     r'^qwen',  # qwen2.5:0.5b to 72b
-    r'^deepseek',  # deepseek-coder-v2, etc.
     r'^command-r',  # command-r:35b, command-r-plus:104b
     r'^starcoder',  # starcoder2:3b, starcoder2:7b, etc.
     r'^codellama',  # codellama:7b, codellama:13b, etc.

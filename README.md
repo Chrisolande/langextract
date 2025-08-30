@@ -209,6 +209,7 @@ Get API keys from:
 *   [AI Studio](https://aistudio.google.com/app/apikey) for Gemini models
 *   [Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/sdks/overview) for enterprise use
 *   [OpenAI Platform](https://platform.openai.com/api-keys) for OpenAI models
+*   [DeepSeek Console](https://platform.deepseek.com/api-keys) for DeepSeek models
 
 ### Setting up API key in your environment
 
